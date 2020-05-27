@@ -4,17 +4,32 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using MyGame.Properties;
 
 namespace MyGame
 {
     public partial class Form1 : Form
     {
+        public int gravity;
+        public int gravityInt = 5;
+        public int x = 200;
+        public int y = 200;
+        public Image Hero = new Bitmap(Resources.Hero);
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            this.Visible = false;
+            form2.Show();
         }
     }
 }
