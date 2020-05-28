@@ -75,12 +75,12 @@
             // 
             // leftTime
             // 
-            this.leftTime.Interval = 10;
+            this.leftTime.Interval = 1;
             this.leftTime.Tick += new System.EventHandler(this.leftTime_Tick);
             // 
             // rightTime
             // 
-            this.rightTime.Interval = 10;
+            this.rightTime.Interval = 1;
             this.rightTime.Tick += new System.EventHandler(this.rightTime_Tick);
             // 
             // Form2
@@ -93,11 +93,12 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
+            this.KeyPreview = true;
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form2_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form2_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

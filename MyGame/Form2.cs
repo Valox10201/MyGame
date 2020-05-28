@@ -19,11 +19,6 @@ namespace MyGame
         private Form1 form1 = new Form1();
         private bool Jump = false;
 
-        private void Form2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -39,21 +34,21 @@ namespace MyGame
 
         private void leftTime_Tick(object sender, EventArgs e)
         {
-            pictureBox2.Left += 10;
+            pictureBox2.Left -= 5;
         }
 
         private void rightTime_Tick(object sender, EventArgs e)
         {
-            pictureBox2.Left -= 10;
+            pictureBox2.Left += 5;
         }
 
         private void Form2_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Left)
+            if (e.KeyCode == Keys.A)
             {
                 leftTime.Start();
             }
-            else if (e.KeyCode == Keys.Right)
+            else if (e.KeyCode == Keys.D)
             {
                 rightTime.Start();
             }
@@ -61,14 +56,19 @@ namespace MyGame
 
         private void Form2_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Left)
+            if (e.KeyCode == Keys.A)
             {
                 leftTime.Stop();
             }
-            else if (e.KeyCode == Keys.Right)
+            else if (e.KeyCode == Keys.D)
             {
                 rightTime.Stop();
             }
+        }
+
+        private void Form2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
         }
     }
 }

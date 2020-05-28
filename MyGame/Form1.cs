@@ -15,11 +15,6 @@ namespace MyGame
 {
     public partial class Form1 : Form
     {
-        public int gravity;
-        public int gravityInt = 5;
-        public int x = 200;
-        public int y = 200;
-        public Image Hero = new Bitmap(Resources.Hero);
         public Form1()
         {
             InitializeComponent();
