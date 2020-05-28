@@ -21,6 +21,7 @@ namespace MyGame
         private bool Jump = false;
         public int gravity = 5;
         List<Rectangle> platforms = new List<Rectangle>();
+        int o = 0;
         public void Plat(int x, int y)
         {
             PictureBox plat = new PictureBox();
@@ -74,6 +75,7 @@ namespace MyGame
             }
             else if (e.KeyCode == Keys.W && !Jump)
             {
+                Jump = true;
                 gravity = -7;
                 Pause(400);
                 gravity = 0;
@@ -116,15 +118,21 @@ namespace MyGame
         {
             foreach (Control i in this.Controls)
             {
-
-                if (Hero.Bounds.IntersectsWith(i.Bounds) && Jump == false && i.Tag.ToString() == "Room" && i is PictureBox)
+                if (Hero.Bounds.IntersectsWith(i.Bounds) && i is PictureBox && i.Tag.ToString() == "Room")
                 {
-                    gravityTime.Stop();
+                    gravity = 0;
+                    o = 0;
+                    Jump = false;
                 }
-                else if (!Hero.Bounds.IntersectsWith(i.Bounds) && Jump == false && i.Tag.ToString() == "Room" && i is PictureBox)
+                else if (!Hero.Bounds.IntersectsWith(i.Bounds) && i is PictureBox && i.Tag.ToString() == "Room" && !Jump)
                 {
-                    gravityTime.Start();
+                    o++;
+                    if (o == this.Controls.Count)
+                    {
+                        gravity = 5;
+                    }
                 }
+                
             }
         }
 
