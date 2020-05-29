@@ -35,13 +35,16 @@ namespace MyGame
             plat.Tag = "Room";
             this.Controls.Add(plat);
         }
-        public void Final(int x, int y, int width, int height, Color color)
+        public void Final(int x, int y, int width, int height)
         {
             PictureBox fin = new PictureBox();
             fin.Location = new Point(x, y);
             fin.Width = width;
             fin.Height = height;
-            fin.BackColor = color;
+            Bitmap f = new Bitmap(MyGame.Properties.Resources.fin);
+            fin.SizeMode = PictureBoxSizeMode.StretchImage;
+            fin.BackColor = Color.Transparent;
+            fin.Image = f;
             fin.Tag = "Final";
             fin1 = fin.Bounds;
             this.Controls.Add(fin);
@@ -86,7 +89,7 @@ namespace MyGame
             {
                 Jump = true;
                 u = 1;
-                gravity = -7;
+                gravity = -2;
                 Pause(400);
                 gravity = 0;
                 Pause(100);
@@ -113,12 +116,7 @@ namespace MyGame
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            Final(1000, 50, 30, 30, Color.Red);
-            Plat(0, 600, 150, 10, Color.Yellow);
-            Plat(400, 550, 150, 10, Color.Yellow);
-            Plat(900, 150, 150, 10, Color.Yellow);
-            Plat(500, 400, 150, 10, Color.Yellow);
-            Plat(600, 250, 150, 10, Color.Yellow);
+            Final(50, 40, 100, 100);
         }
 
         private void timer1_Tick_1(object sender, EventArgs e)
@@ -147,21 +145,46 @@ namespace MyGame
                 }
                 else if (Hero.Bounds.IntersectsWith(fin1))
                 {
-                    label1.Visible = true;
-                    label2.Visible = true;
+                    pictureBox16.Visible = true;
                     final = true;
+                    gravity = 0;
                 }
                 
             }
             if (Hero.Location.Y > 700)
             {
-                Hero.Location = new Point(26, 550);
+                Hero.Location = new Point(26, 625);
             }
         }
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
             form1.Visible = true;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Hero_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            Hero2.Location = new Point(Hero.Location.X, Hero.Location.Y - 10);
         }
     }
 }

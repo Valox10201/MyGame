@@ -90,13 +90,46 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Hero.png" />
+    <None Include="Resources\8c8a2ad2098d99968064d1effb6a0f41 %281%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\game_over_PNG57.png" />
+    <None Include="Resources\8c8a2ad2098d99968064d1effb6a0f41.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\5abf8dad8c08a1627c416e06.png" />
+    <None Include="Resources\8c8a2ad2098d99968064d1effb6a0f41111111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\111111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bez_imeni-1 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bez_imeni-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bez_imeni-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bez_imeni-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CONGR %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CONGR %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CONGR %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CONGR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fon2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
