@@ -22,6 +22,8 @@ namespace MyGame
         public int gravity = 5;
         int o = 0;
         int u = 0;
+        int t = 0;
+        bool final = false;
         Rectangle fin1 = new Rectangle();
         public void Plat(int x, int y, int width, int height, Color color)
         {
@@ -54,11 +56,6 @@ namespace MyGame
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             
@@ -77,15 +74,15 @@ namespace MyGame
 
         private void Form2_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.A)
+            if ((e.KeyCode == Keys.A) && !final)
             {
                 leftTime.Start();
             }
-            else if (e.KeyCode == Keys.D)
+            else if ((e.KeyCode == Keys.D) && !final)
             {
                 rightTime.Start();
             }
-            else if (e.KeyCode == Keys.W && !Jump)
+            else if (e.KeyCode == Keys.W && !Jump && !final && t == 0)
             {
                 Jump = true;
                 u = 1;
@@ -95,6 +92,10 @@ namespace MyGame
                 Pause(100);
                 gravity = 5;
                 u = 2;
+            }
+            else if ((e.KeyCode == Keys.R) && final)
+            {
+                this.Close();
             }
         }
 
@@ -133,6 +134,7 @@ namespace MyGame
                 {
                     gravity = 0;
                     o = 0;
+                    t = 0;
                 }
                 else if (!Hero.Bounds.IntersectsWith(i.Bounds) && i is PictureBox && i.Tag.ToString() == "Room" && !Jump && u == 0)
                 {
@@ -140,11 +142,14 @@ namespace MyGame
                     if (o == this.Controls.Count)
                     {
                         gravity = 5;
+                        t = 1;
                     }
                 }
                 else if (Hero.Bounds.IntersectsWith(fin1))
                 {
                     label1.Visible = true;
+                    label2.Visible = true;
+                    final = true;
                 }
                 
             }
@@ -152,6 +157,11 @@ namespace MyGame
             {
                 Hero.Location = new Point(26, 550);
             }
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            form1.Visible = true;
         }
     }
 }

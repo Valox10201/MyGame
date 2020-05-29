@@ -29,26 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
             this.gravityTime = new System.Windows.Forms.Timer(this.components);
             this.leftTime = new System.Windows.Forms.Timer(this.components);
             this.rightTime = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Hero = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Hero)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Tag = "button";
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // gravityTime
             // 
@@ -87,12 +76,24 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(145, 247);
+            this.label1.Location = new System.Drawing.Point(253, 296);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(626, 108);
+            this.label1.Size = new System.Drawing.Size(828, 108);
             this.label1.TabIndex = 3;
-            this.label1.Text = "GAME OVER";
+            this.label1.Text = "Congratulations =)";
             this.label1.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(419, 417);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(369, 73);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Намжите R";
+            this.label2.Visible = false;
             // 
             // Form2
             // 
@@ -100,14 +101,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1208, 695);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Hero);
-            this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyUp);
@@ -118,13 +120,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer gravityTime;
         private System.Windows.Forms.PictureBox Hero;
         private System.Windows.Forms.Timer leftTime;
         private System.Windows.Forms.Timer rightTime;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
