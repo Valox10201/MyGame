@@ -35,7 +35,6 @@
             this.leftTime = new System.Windows.Forms.Timer(this.components);
             this.rightTime = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Hero)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,11 +81,6 @@
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
-            // timer2
-            // 
-            this.timer2.Interval = 50;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -102,7 +96,6 @@
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyDown);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form2_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.Hero)).EndInit();
             this.ResumeLayout(false);
@@ -117,6 +110,5 @@
         private System.Windows.Forms.Timer leftTime;
         private System.Windows.Forms.Timer rightTime;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer2;
     }
 }

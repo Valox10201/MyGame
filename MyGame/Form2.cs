@@ -20,15 +20,15 @@ namespace MyGame
         private Form1 form1 = new Form1();
         private bool Jump = false;
         public int gravity = 5;
-        List<Rectangle> platforms = new List<Rectangle>();
         int o = 0;
-        public void Plat(int x, int y)
+        int u = 0;
+        public void Plat(int x, int y, int width, int height, Color color)
         {
             PictureBox plat = new PictureBox();
             plat.Location = new Point(x, y);
-            plat.Width = 150;
-            plat.Height = 20;
-            plat.BackColor = Color.Yellow;
+            plat.Width = width;
+            plat.Height = height;
+            plat.BackColor = color;
             plat.Tag = "Room";
             this.Controls.Add(plat);
         }
@@ -76,11 +76,13 @@ namespace MyGame
             else if (e.KeyCode == Keys.W && !Jump)
             {
                 Jump = true;
+                u = 1;
                 gravity = -7;
                 Pause(400);
                 gravity = 0;
                 Pause(100);
                 gravity = 5;
+                u = 2;
             }
         }
 
@@ -96,35 +98,27 @@ namespace MyGame
             }
         }
 
-        private void Form2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-        }
-
         private void Form2_Load(object sender, EventArgs e)
         {
-            PictureBox Ground = new PictureBox();
-            Ground.Width = 1250;
-            Ground.Height = 25;
-            Ground.BackColor = Color.Green;
-            Ground.Location = new Point(0, 650);
-            Ground.Tag = "Room";
-            this.Controls.Add(Ground);
-            Plat(200, 600);
-            Plat(400, 600);
+            Plat(0, 600, 150, 10, Color.Yellow);
+            Plat(400, 550, 150, 10, Color.Yellow);
         }
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             foreach (Control i in this.Controls)
             {
-                if (Hero.Bounds.IntersectsWith(i.Bounds) && i is PictureBox && i.Tag.ToString() == "Room")
+                if (Hero.Bounds.IntersectsWith(i.Bounds) && i is PictureBox && i.Tag.ToString() == "Room" && Jump && u == 2)
+                {
+                    Jump = false;
+                    u = 0;
+                }
+                else if (Hero.Bounds.IntersectsWith(i.Bounds) && i is PictureBox && i.Tag.ToString() == "Room" && !Jump && u == 0)
                 {
                     gravity = 0;
                     o = 0;
-                    Jump = false;
                 }
-                else if (!Hero.Bounds.IntersectsWith(i.Bounds) && i is PictureBox && i.Tag.ToString() == "Room" && !Jump)
+                else if (!Hero.Bounds.IntersectsWith(i.Bounds) && i is PictureBox && i.Tag.ToString() == "Room" && !Jump && u == 0)
                 {
                     o++;
                     if (o == this.Controls.Count)
@@ -134,11 +128,6 @@ namespace MyGame
                 }
                 
             }
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            
         }
     }
 }
