@@ -63,6 +63,26 @@ namespace MyGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _5abf8dad8c08a1627c416e06 {
+            get {
+                object obj = ResourceManager.GetObject("5abf8dad8c08a1627c416e06", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap game_over_PNG57 {
+            get {
+                object obj = ResourceManager.GetObject("game_over_PNG57", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Hero {
             get {
                 object obj = ResourceManager.GetObject("Hero", resourceCulture);

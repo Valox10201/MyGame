@@ -22,6 +22,7 @@ namespace MyGame
         public int gravity = 5;
         int o = 0;
         int u = 0;
+        Rectangle fin1 = new Rectangle();
         public void Plat(int x, int y, int width, int height, Color color)
         {
             PictureBox plat = new PictureBox();
@@ -31,6 +32,17 @@ namespace MyGame
             plat.BackColor = color;
             plat.Tag = "Room";
             this.Controls.Add(plat);
+        }
+        public void Final(int x, int y, int width, int height, Color color)
+        {
+            PictureBox fin = new PictureBox();
+            fin.Location = new Point(x, y);
+            fin.Width = width;
+            fin.Height = height;
+            fin.BackColor = color;
+            fin.Tag = "Final";
+            fin1 = fin.Bounds;
+            this.Controls.Add(fin);
         }
         public void Pause(int sec)
         {
@@ -100,8 +112,12 @@ namespace MyGame
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            Final(1000, 50, 30, 30, Color.Red);
             Plat(0, 600, 150, 10, Color.Yellow);
             Plat(400, 550, 150, 10, Color.Yellow);
+            Plat(900, 150, 150, 10, Color.Yellow);
+            Plat(500, 400, 150, 10, Color.Yellow);
+            Plat(600, 250, 150, 10, Color.Yellow);
         }
 
         private void timer1_Tick_1(object sender, EventArgs e)
@@ -126,7 +142,15 @@ namespace MyGame
                         gravity = 5;
                     }
                 }
+                else if (Hero.Bounds.IntersectsWith(fin1))
+                {
+                    label1.Visible = true;
+                }
                 
+            }
+            if (Hero.Location.Y > 700)
+            {
+                Hero.Location = new Point(26, 550);
             }
         }
     }
