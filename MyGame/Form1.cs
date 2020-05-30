@@ -22,9 +22,7 @@ namespace MyGame
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
-            this.Visible = false;
-            form2.Show();
+            
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -32,9 +30,24 @@ namespace MyGame
             Application.Exit();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            this.Visible = false;
+            form2.Show();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\u001b')
+            {
+                Application.Exit();
+            }
         }
     }
 }

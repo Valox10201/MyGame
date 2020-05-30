@@ -96,7 +96,7 @@ namespace MyGame
                 gravity = 5;
                 u = 2;
             }
-            else if ((e.KeyCode == Keys.R) && final)
+            else if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
             }
@@ -153,33 +153,13 @@ namespace MyGame
             }
             if (Hero.Location.Y > 700)
             {
-                Hero.Location = new Point(26, 625);
+                Hero.Location = new Point(25, 602);
             }
         }
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
             form1.Visible = true;
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Hero_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void timer2_Tick(object sender, EventArgs e)
